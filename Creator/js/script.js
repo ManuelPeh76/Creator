@@ -107,7 +107,13 @@ const root = window;
                 { input: { id: "file", type: "file", onchange: loadProject, class: "hide" }, parent: document.body },
                 { input: { id: "upload", type: "file", multiple: 1, onchange: upload, class: "hide" }, parent: document.body },
                 { div: { class: "work-container", children: [
-                    { h1: {}},
+                    { h1: { class: "orbitron", children: [
+                        { div: { class: "background-text", children: [
+                            { span: { class: "big", text: "C" }},
+                            { text: "reator" },
+                            { p: { class: "headline", text: "Made to build your ideas" }}
+                        ]}}
+                    ]}},
                     { div: { id: "selection", class: "selection flex-space-between full-width", children: [
                         { select: { id: "locale-selection", class: "projects-selection locale-selection", onchange: switchLocale }},
                         { div: { id: "create-zip", class: "create-zip full-width"}}
@@ -318,6 +324,7 @@ const root = window;
             Toggler .addEventListener("click",          toggleConsole);
             window  .addEventListener("keydown",        handleFullscreen);
             window  .addEventListener("mousedown",      () => updateCursorPosition());
+
             each($$(".tab-button"), (button, index) => button.addEventListener("click", () => editors[index].focus()));
 
             WorkContainer.style.height = fullHeight;
