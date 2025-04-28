@@ -18,7 +18,7 @@ The first four editors are self-explanatory (HTML, CSS, JS, TS). The 'Images' an
 ### Asset Editor
 When uploading files, you can choose how they should be processed: by file extension or as an asset.
 If you select Asset, the uploaded files will be converted, depending on their content, either as a dataURI, as minified text, or into an 8- or 16-bit array buffer (this behavior can be influenced; more on this later).
-The file contents are then converted to strings and added to the Asset Editor. When the project is rendered, the global constant '_assets_' is created, which contains all assets to make them accessible via JavaScript.
+The file contents are then converted to strings and added to the Asset Editor. When the project is rendered, the global constant '\_assets\_' is created, which contains all assets to make them accessible via JavaScript.
 
 ### Image Editor
 Click 'Upload' and select the images to upload. These will be converted to dataURIs and saved as strings in the Image Editor. Each time the project is rendered, all image paths within the HTML and CSS source code are replaced with dataURIs, so the images are displayed normally. However, this does not apply to dynamic content, which is loaded at runtime.
