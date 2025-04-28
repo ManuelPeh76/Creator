@@ -24,10 +24,9 @@
 */
 
 
-//(function(root) {
-const root = window;
+(function(root) {
 
-    String.prototype.parseFunction=function(){ eval(this); }
+	String.prototype.parseFunction=function(){ eval(this); }
     Function.prototype.stringify=function(){for(var e,t=/\s/,n=/\(\)|\[\]|\{\}/,s=new Array,r=this.toString(),i=new RegExp("^s*("+(this.name?this.name+"|":"")+"function)[^)]*\\(").test(r),a="start",g=new Array,h=0;h<r.length;++h){var o=r[h];switch(a){case"start":if(t.test(o)||i&&"("!=o)continue;"("==o?(a="arg",e=h+1):(a="singleArg",e=h);break;case"arg":case"singleArg":if(g.length>0&&"\\"==g[g.length-1]){g.pop();continue}if(t.test(o))continue;switch(o){case"\\":g.push(o);break;case"]":case"}":case")":if(g.length>0){n.test(g[g.length-1]+o)&&g.pop();continue}if("singleArg"==a)throw"";s.push(r.substring(e,h).trim()),a=i?"body":"arrow";break;case",":if(g.length>0)continue;if("singleArg"==a)throw"";s.push(r.substring(e,h).trim()),e=h+1;break;case">":if(g.length>0)continue;if("="!=r[h-1])continue;if("arg"==a)throw"";s.push(r.substring(e,h-1).trim()),a="body";break;case"{":case"[":case"(":(g.length<1||'"'!=g[g.length-1]&&"'"!=g[g.length-1])&&g.push(o);break;case'"':g.length<1?g.push(o):'"'==g[g.length-1]&&g.pop();break;case"'":g.length<1?g.push(o):"'"==g[g.length-1]&&g.pop()}break;case"arrow":if(t.test(o))continue;if("="!=o)throw"";if(">"!=r[++h])throw"";a="body";break;case"body":if(t.test(o))continue;r=r.substring(h),h=(r="{"==o?r.replace(/^{\s*(.*)\s*}\s*$/,"$1"):"return "+r.trim()).length;break;default:throw""}}return s=JSON.stringify(s),(i?`function ${this.name}`:`var ${this.name} = `)+`(${s.substring(1,s.length-1).replace(/"/g,"")})`+(i?"":" => ")+`${r}`};
     EventTarget.prototype.addDelegatedListener=function(t,s,l){this.addEventListener(t,function(e){e.target&&e.target.matches(s)&&l.call(e.target,e)})};
 
@@ -1662,7 +1661,11 @@ const root = window;
         }
 
         function addFile(val, name) {
-            editor.setValue(val || jsonStringify({ ...jsonParse(editor.getValue()) || {}, [name]: value }));
+	    val ? editor.setValue(val) : (
+	        val = jsonParse(editor.getValue()) || {},
+		val[name] = value,
+		editor.setValue(jsonStringify(val))
+	    );
             Project[editor.type] = val || value;
             count++;
         }
@@ -2400,7 +2403,7 @@ const root = window;
     }
 
     function removeProject() {
-        if (!Project.id || temp.toZip?.length) return temp.toZip.length ? showWaitForZipMsg() : undefined;
+        if (!Project.id || temp.toZip?.length) return temp.toZip?.length ? showWaitForZipMsg() : undefined;
         if (confirm(Locale.thisProjectWillBeRemovedFromDatabase)) {
             db.remove({ from: "Projects", where: { id: Project.id }}).then(() => {
                 removeFromLoadedProjects(Project);
@@ -2649,6 +2652,4 @@ const root = window;
         }
     }
 
-    root.openExtern = openExtern;
-
-//})(window);
+})(window);
