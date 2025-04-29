@@ -1,7 +1,9 @@
 # Creator
 
 A playground for HTML, CSS, JavaScript, and Typescript with live preview. 
+
 Create a project and give it a name - that's all it takes to store it permanently in your browser's indexedDB.
+
 When you restart the tool, the most recently used project will open automatically.
 
 All previously created projects can be easily found in a dropdown menu, as well as in the context menu (right-click -> Select Project).
