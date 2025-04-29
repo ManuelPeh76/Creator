@@ -1,10 +1,16 @@
 # Creator
 
-A playground for HTML, CSS, JavaScript, and Typescript with live preview. Create a project and give it a name. From that moment on, the project is saved! Completely locally, in your browser's indexedDB.
+A playground for HTML, CSS, JavaScript, and Typescript with live preview. Create a project and give it a name - that's all it takes to store it permanently in your browser's indexedDB.
 When you restart the tool, the most recently used project will open automatically.
 All previously created projects can be easily found in a dropdown menu, as well as in the context menu (right-click -> Select Project).
-To save your projects completely browser-independently, you can download all projects as a single ZIP file or one by one as JSON project file or as HTML. If you copy the contents of the ZIP file to the /creations subfolder, you can select the projects to be loaded with '...index.html?usedb=0' when opening the tool. Alternatively, click 'Import Project' and select the ZIP file itself. You can then also select which projects should be imported from the ZIP file.
-Starting with ?usedb=0 means that no browser database is used. Instead, the tool searches for the 'creations.txt' file in the creations folder and loads the projects listed there from the /json folder. Projects can therefore no longer be backed up automatically! However, you can save all loaded projects as a ZIP file, or a single project as JSON. Everything else works normally.
+To save your projects completely browser-independently, you can download all projects as a single ZIP file or one by one as JSON project file or as HTML.
+If you copy the contents of the ZIP file to the /creations subfolder, you can select the projects to be loaded with '...index.html?usedb=0' when opening the tool, which tells the Creator, not to use the browsers database. That's why auto store will not work. 
+But usedb=0 does also something else: the tool searches for a file called 'creations.txt' in the creations folder and loads the projects listed there from the /json folder. 
+Alternatively, click 'Import Project' and select the ZIP file itself. You can then also select which projects should be imported from the ZIP file.
+
+Most things you will find out. 
+I have added five projects which should help to explore.
+There are CleanCSS, Game Of Life, JS Fuck, JS Fuck Decoder, and Patternify Flex. Maybe you know Patternify (www.patternify.com). The flex version was written by me some years ago. It has still some small bugs, so use it on your own risk (try Shift + F11 for running a demo).
 
 ## The Editors
 
