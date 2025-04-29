@@ -32,3 +32,5 @@ Click 'Upload' and select the images to upload. These will be converted to dataU
 The contents of the image and asset editors should only be edited manually if you know what you're doing! But if necessary, there's always the undo function. ;)
 
 ## The Editor Functions
+
+...to be continued.
