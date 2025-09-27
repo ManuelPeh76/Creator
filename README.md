@@ -1,3 +1,5 @@
+# This file is under construction...
+
 # Creator
 
 A playground for HTML, CSS, JavaScript, and Typescript with live preview. <br>Create a project and give it a name - that's all it takes to store it permanently in your browser's indexedDB.<br>When you restart the tool, the most recently used project will open automatically.
@@ -33,4 +35,4 @@ The contents of the image and asset editors should only be edited manually if yo
 
 ## The Editor Functions
 
-...to be continued.
+
