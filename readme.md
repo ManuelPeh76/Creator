@@ -25,6 +25,9 @@ A powerful playground for HTML, CSS, JavaScript, and TypeScript with live previe
   - Bulk project management
 - **Localization**: Available in English and German
 
+## Screenshot
+<img src="img/app.png" width="600" />
+
 ## 📋 Getting Started
 
 ### Basic Usage
