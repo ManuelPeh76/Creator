@@ -1,38 +1,132 @@
-# This file is under construction...
-
 # Creator
 
-A playground for HTML, CSS, JavaScript, and Typescript with live preview. <br>Create a project and give it a name - that's all it takes to store it permanently in your browser's indexedDB.<br>When you restart the tool, the most recently used project will open automatically.
+A powerful playground for HTML, CSS, JavaScript, and TypeScript with live preview and persistent storage.
 
-All previously created projects can be easily found in a dropdown menu, as well as in the context menu (right-click -> Select Project).
-To save your projects completely browser-independently, you can download all projects as a single ZIP file or one by one as JSON project file or as HTML.
-If you copy the contents of the ZIP file to the /creations subfolder, you can select the projects to be loaded with '...index.html?usedb=0' when opening the tool, which tells the Creator, not to use the browsers database. That's why auto store will not work. 
-But usedb=0 does also something else: the tool searches for a file called 'creations.txt' in the creations folder and loads the projects listed there from the /json folder. 
-Alternatively, click 'Import Project' and select the ZIP file itself. You can then also select which projects should be imported from the ZIP file.
+## 🚀 Features
 
-Most things you will find out. 
-I have added five projects which should help to explore.
-There are CleanCSS, Game Of Life, JS Fuck, JS Fuck Decoder, and Patternify Flex. Maybe you know Patternify (www.patternify.com). The flex version was written by me some years ago. It has still some small bugs, so use it on your own risk (try Shift + F11 for running a demo).
+- **Multi-Language Support**: Work with HTML, CSS, JavaScript, and TypeScript in dedicated editors
+- **Live Preview**: See your changes in real-time
+- **Persistent Storage**: Projects are automatically saved in your browser's IndexedDB
+- **Advanced Code Editing**: Powered by Cloud9's Ace Editor with:
+  - Syntax highlighting
+  - Syntax checking
+  - Code beautifier
+  - Code minifier
+  - Undo/Redo functionality
+  - Intelligent code completion
+- **Asset Management**: 
+  - Image upload with automatic dataURI conversion
+  - Asset editor for embedding various file types
+  - Global `_assets_` constant for runtime access
+- **Project Management**:
+  - Export projects as ZIP, JSON, or HTML
+  - Import projects from ZIP files
+  - Quick project switching via dropdown or context menu
+  - Bulk project management
+- **Localization**: Available in English and German
 
-## The Editors
+## Screenshot
+<img src="img/app.png" width="800" />
+In the example screenshot the project `Patternify Flex` is loaded.
 
-The Creator is based on Cloud9's popular Ace editor.
-There are a total of six individual editors, only one of which is visible at a time. The editor is conveniently selected via tabs directly above the editor.
-The editors: HTML, JavaScript, Typescript, CSS, Images, and Assets.
-Each editor checks the input for syntactical correctness, has undo/redo, a beautifier, a minifier, and makes input suggestions.
+---
 
-The first four editors are self-explanatory (HTML, CSS, JS, TS). The 'Images' and 'Assets' editors save content in JSON format.
+## 📋 Getting Started
 
-### Asset Editor
-When uploading files, you can choose how they should be processed: by file extension or as an asset.
-If you select Asset, the uploaded files will be converted, depending on their content, either as a dataURI, as minified text, or into an 8- or 16-bit array buffer (this behavior can be influenced; more on this later).
-The file contents are then converted to strings and added to the Asset Editor. When the project is rendered, the global constant '\_assets\_' is created, which contains all assets to make them accessible via JavaScript.
+### Basic Usage
 
-### Image Editor
-Click 'Upload' and select the images to upload. These will be converted to dataURIs and saved as strings in the Image Editor. Each time the project is rendered, all image paths within the HTML and CSS source code are replaced with dataURIs, so the images are displayed normally. However, this does not apply to dynamic content, which is loaded at runtime.
+1. Open `index.html` in your browser
+2. Create a new project and give it a name
+3. Start coding in any of the six editors (HTML, JavaScript, TypeScript, CSS, Images, Assets)
+4. Your project is automatically saved to IndexedDB
+5. The most recently used project opens automatically on restart
 
-The contents of the image and asset editors should only be edited manually if you know what you're doing! But if necessary, there's always the undo function. ;)
+### Database-Free Mode
 
-## The Editor Functions
+To run Creator without IndexedDB (useful for portable setups):
 
+1. Export your projects as a ZIP file
+2. Extract the ZIP contents to the `/creations` subfolder
+3. Open the tool with `index.html?usedb=0`
+4. Projects will be loaded from the `/json` folder
 
+**Note**
+- Auto-save is disabled in database-free mode.
+- You can put the ZIP file right into the `/creations` subfolder, just unzip the file **creationlist.txt** from it<br>
+into the same `/creations` folder. Creator unzips all projects by itself, if it finds the **creationslist.txt**.
+
+## 🎨 Editors Overview
+
+### HTML, CSS, JavaScript, TypeScript Editors
+Standard code editors with full syntax support, validation, and formatting capabilities.
+
+### Images Editor
+- Upload images via the 'Upload' button
+- Images are automatically converted to dataURIs
+- During project rendering, all image paths in HTML/CSS are replaced with dataURIs
+- **Caution**: Manual editing not recommended unless you know what you're doing
+
+### Assets Editor
+- Upload files and choose processing method:
+  - **By Extension**: Standard file type handling
+  - **As Asset**: Advanced conversion to dataURI, minified text, or binary array buffer
+- Assets are stored as JSON
+- Access via global `_assets_` constant in your JavaScript code
+- **Caution**: Manual editing not recommended unless you know what you're doing
+
+## 📦 Import/Export
+
+### Export Options
+- **Single Project as JSON**: Portable project file
+- **Single Project as HTML**: Standalone HTML file
+- **All Projects as ZIP**: Complete backup of all projects
+
+### Import Options
+- **Load from Filesystem**: Click the import tab above the editor to choose a zip or json file to import.
+
+## 🎮 Sample Projects
+Creator includes five demonstration projects to help you get started:
+1. **CleanCSS**: CSS cleaning and optimization tool
+2. **Game Of Life**: Conway's Game of Life implementation
+3. **JS Fuck**: JavaScript obfuscation example
+4. **JS Fuck Decoder**: Decoder for JS Fuck obfuscated code
+5. **Patternify Flex**: CSS pattern generator (custom Flex version of Patternify.com)
+   - Try `Shift + F11` for a demo
+   - **Note**: May contain minor bugs
+
+## 🛠️ Technical Details
+- **TypeScript Transpiler**: Is automatically applied, if there is any content inside the ts editor.
+- **Editor Engine**: Cloud9 Ace Editor
+- **Minifier**
+  - HTML: HTML-Minifier-Terser
+  - JS + TS: Terser
+  - CSS: CleanCSS
+- **Beautifier**: Beautifier (for HTML, CSS, and JS)
+- **Console**: Eruda
+- **Database**: IndexedDB (browser-native)
+- **Architecture**: Six independent editors, tab-based switching
+- **Asset Handling**: Automatic conversion to dataURIs, minified text, or binary arrays
+- **Auto reload**: Reloads the project on editor content change (with a delay of 1s).
+- **Localization**: By default english and german are available, but you can create any language.<br>
+  Use the drop down menu in the top left corner and choose `[Customize]`. A newly added language will<br>
+  be stored in browsers localStorage and is automatically applied on startup.
+
+## 🌐 Project Selection
+
+Access your projects via:
+- Dropdown menu in the interface
+- Right-click context menu → Select Project
+- Automatic loading of most recent project on startup
+
+## ⚠️ Important Notes
+
+- Dynamic content loaded at runtime won't automatically use embedded dataURIs
+- The Images and Assets editors store data in JSON format
+- Manual editing of Images/Assets editors can break projects (use undo if needed)
+- Patternify Flex is powerful, but has known minor bugs - use at your own risk.
+
+## 📝 License
+License MIT
+
+## 👤 Author
+ManuelPeh
