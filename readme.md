@@ -27,6 +27,7 @@ A powerful playground for HTML, CSS, JavaScript, and TypeScript with live previe
 
 ## Screenshot
 <img src="img/app.png" width="600" />
+In the example screenshot the project `Patternify Flex` is loaded.
 
 ## 📋 Getting Started
 
