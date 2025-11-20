@@ -26,7 +26,7 @@ A powerful playground for HTML, CSS, JavaScript, and TypeScript with live previe
 - **Localization**: Available in English and German
 
 ## Screenshot
-<img src="img/app.png" width="600" />
+<img src="img/app.png" width="800" />
 In the example screenshot the project `Patternify Flex` is loaded.
 
 ---
