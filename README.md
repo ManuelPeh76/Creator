@@ -14,6 +14,8 @@ A powerful playground for HTML, CSS, JavaScript, and TypeScript with live previe
   - Code minifier
   - Undo/Redo functionality
   - Intelligent code completion
+- **Integrated console**:
+  - Uses Eruda as javascript console.
 - **Asset Management**: 
   - Image upload with automatic dataURI conversion
   - Asset editor for embedding various file types
