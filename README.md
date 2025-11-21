@@ -1,4 +1,4 @@
-# <img src="img/logo.png" width="60"> Creator
+# <img src="img/logo.png" width="400">
 
 A powerful playground for HTML, CSS, JavaScript, and TypeScript with live preview and persistent storage.
 
