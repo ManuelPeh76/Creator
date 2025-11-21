@@ -1,4 +1,4 @@
-# <img src="img/banner.png" width="400">
+# <img src="img/banner.png" width="100%">
 
 A powerful playground for HTML, CSS, JavaScript, and TypeScript with live preview and persistent storage.
 
