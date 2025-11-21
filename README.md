@@ -52,8 +52,7 @@ To run Creator without IndexedDB (useful for portable setups):
 
 **Note**
 - Auto-save is disabled in database-free mode.
-- You can put the ZIP file right into the `/creations` subfolder, just unzip the file **creationlist.txt** from it<br>
-into the same `/creations` folder. Creator unzips all projects by itself, if it finds the **creationslist.txt**.
+- Creator can handle ZIP files by itself.  Use the **Import** tab to load projects from a zip file.
 
 ## 🎨 Editors Overview
 
