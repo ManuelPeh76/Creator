@@ -769,14 +769,13 @@ const root = window;
         try {
             let resp = await fetch("./creations/creationlist.txt");
             if (resp.status >= 400) return null;
-            text = await resp.text();
-            let arr = jsonParse(text);
+            let arr = await resp.json();
             each(arr, (name, index) => projects.push(name.replace(/\/creations\/json\/(.*?).json/, "$1")));
             chooseFromProjects(projects, Locale.localProjectsFound, function(chosenProjects) {
                 const pr = [];
                 each(chosenProjects, name => {
-                    fetch("./creations/json/" + name + ".json").then(p => p.text()).then(project => {
-                        pr.push(jsonParse(project));
+                    fetch("./creations/json/" + name + ".json").then(p => p.json()).then(project => {
+                        pr.push(project);
                         if (pr.length === chosenProjects.length) return processNewProjects(pr);
                     });
                 });
