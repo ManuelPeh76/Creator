@@ -25,7 +25,9 @@ A powerful playground for HTML, CSS, JavaScript, and TypeScript with live previe
   - Import projects from ZIP files
   - Quick project switching via dropdown or context menu
   - Bulk project management
-- **Localization**: Available in English and German
+- **Localization**:
+  - Available in English and German
+  - Integrated localization editor to add any language using localStorage
 
 ## Screenshot
 <img src="img/app.png" width="800" />
