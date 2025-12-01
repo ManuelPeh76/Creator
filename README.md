@@ -1,7 +1,7 @@
 # <img src="img/banner.png" width="800">
 
-<br><br>
-# <img src="img/icon.png" width="50"> Crator
+<br>
+# Crator
 
 
 A powerful playground for HTML, CSS, JavaScript, and TypeScript with live preview and persistent storage.
