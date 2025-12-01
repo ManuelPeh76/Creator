@@ -1,7 +1,7 @@
 # <img src="img/banner.png" width="800">
 <br>
 
-# Crator
+# Creator
 
 A powerful playground for HTML, CSS, JavaScript, and TypeScript with live preview and persistent storage.
 
