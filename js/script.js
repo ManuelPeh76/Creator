@@ -1184,7 +1184,7 @@ const root = window;
             if (global.preventRendering) return;
             global.preventRendering = 1;
             Iframe || (
-                Iframe = tag({ iframe: { style: { boxSizing: "borderBox", position: "absolute", right: 0, top: 0, width: "50vw", height: "100vh", border: "none", frameborder: 0 }, onload: iFrameOnLoad}, parent: Container }),
+                Iframe = tag({ iframe: { style: { boxSizing: "borderBox", position: "absolute", right: 0, top: 0, width: "50vw", height: "100vh", border: "none", frameborder: 0 }, children: [{ script: { src: "./js/eruda.min.js" }}], onload: iFrameOnLoad}, parent: Container }),
                 //Iframe.onload = iFrameOnLoad,
                 root.Iframe = Iframe
             );
